@@ -1,5 +1,5 @@
 import {Component} from "react";
-import FuseSplashScreen from "../../@fuse/FuseSplashScreen";
+import FuseSplashScreen from "../../@fuse/core/FuseSplashScreen";
 
 
 class Auth extends Component {
