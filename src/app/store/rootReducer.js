@@ -1,7 +1,9 @@
 import {combineReducers} from "@reduxjs/toolkit";
+import fuse from './fuse';
 
 const createReducer = (asyncReducers) => (state, action) => {
     const combinedReducer = combineReducers({
+        fuse,
         ...asyncReducers
     })
 
