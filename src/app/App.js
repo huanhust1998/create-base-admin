@@ -6,6 +6,7 @@ import FuseAuthorization from "../@fuse/core/FuseAuthorization/FuseAuthorization
 import FuseTheme from "../@fuse/core/FuseTheme/FuseTheme";
 import {SnackbarProvider} from 'notistack';
 import FuseLayout from "../@fuse/core/FuseLayout";
+import withAppProviders from "./withAppProviders";
 
 function App() {
     return (
@@ -32,4 +33,4 @@ function App() {
     );
 }
 
-export default App;
+export default withAppProviders(App);

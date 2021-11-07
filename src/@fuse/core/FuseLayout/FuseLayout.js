@@ -85,6 +85,12 @@ function FuseLayout(props) {
     const matched = matchRoutes(routes, pathname)[0];
     const newSettings = useRef(null);
 
+    /**
+     * useCallBack được sử dụng để tối ưu trong quá trình render của React functional componenets.
+     * Nó rất hữu ích với trường hợp một component liên tục được hiển thị lại không cần thiết trong quá trình xử lý sự kiện người dùng và có hành vi chức năng phức tạp.
+     *
+    * */
+
     const shouldAwaitRender = useCallback(() => {
         let _newSettings;
         /**
