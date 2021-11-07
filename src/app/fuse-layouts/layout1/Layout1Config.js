@@ -1,29 +1,152 @@
-import {memo} from "react";
-import {makeStyles} from "@material-ui/core";
-import {useSelector} from "react-redux";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '&.boxed': {
-            clipPath: 'inset(0)',
-            maxWidth: (props) => `${props.config.containerWidth}px`,
-            margin: '0 auto',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+const config = {
+    title: 'Layout 1 - Vertical',
+    defaults: {
+        mode: 'container',
+        containerWidth: 1570,
+        navbar: {
+            display: true,
+            style: 'style-1',
+            folded: true,
+            position: 'left',
         },
-        '&.container': {
-            '& .container': {
-                maxWidth: (props) => `${props.config.containerWidth}px`,
-                width: '100%',
-                margin: '0 auto',
+        toolbar: {
+            display: true,
+            style: 'fixed',
+        },
+        footer: {
+            display: true,
+            style: 'fixed',
+        },
+        leftSidePanel: {
+            display: true,
+        },
+        rightSidePanel: {
+            display: true,
+        },
+    },
+    form: {
+        mode: {
+            title: 'Mode',
+            type: 'radio',
+            options: [
+                {
+                    name: 'Boxed',
+                    value: 'boxed',
+                },
+                {
+                    name: 'Full Width',
+                    value: 'fullwidth',
+                },
+                {
+                    name: 'Container',
+                    value: 'container',
+                },
+            ],
+        },
+        containerWidth: {
+            title: 'Container Width (px)',
+            type: 'number',
+        },
+
+        navbar: {
+            type: 'group',
+            title: 'Navbar',
+            children: {
+                display: {
+                    title: 'Display',
+                    type: 'switch',
+                },
+                position: {
+                    title: 'Position',
+                    type: 'radio',
+                    options: [
+                        {
+                            name: 'Left',
+                            value: 'left',
+                        },
+                        {
+                            name: 'Right',
+                            value: 'right',
+                        },
+                    ],
+                },
+                style: {
+                    title: 'Style',
+                    type: 'radio',
+                    options: [
+                        {
+                            name: 'Slide (style-1)',
+                            value: 'style-1',
+                        },
+                        {
+                            name: 'Folded (style-2)',
+                            value: 'style-2',
+                        },
+                        {
+                            name: 'Tabbed (style-3)',
+                            value: 'style-3',
+                        },
+                        {
+                            name: 'Tabbed Dense (style-3-dense)',
+                            value: 'style-3-dense',
+                        },
+                    ],
+                },
+                folded: {
+                    title: 'Folded (style-2, style-3)',
+                    type: 'switch',
+                },
+            },
+        },
+        toolbar: {
+            type: 'group',
+            title: 'Toolbar',
+            children: {
+                display: {
+                    title: 'Display',
+                    type: 'switch',
+                },
+                style: {
+                    title: 'Style',
+                    type: 'radio',
+                    options: [
+                        {
+                            name: 'Fixed',
+                            value: 'fixed',
+                        },
+                        {
+                            name: 'Static',
+                            value: 'static',
+                        },
+                    ],
+                },
+            },
+        },
+        footer: {
+            type: 'group',
+            title: 'Footer',
+            children: {
+                display: {
+                    title: 'Display',
+                    type: 'switch',
+                },
+                style: {
+                    title: 'Style',
+                    type: 'radio',
+                    options: [
+                        {
+                            name: 'Fixed',
+                            value: 'fixed',
+                        },
+                        {
+                            name: 'Static',
+                            value: 'static',
+                        },
+                    ],
+                },
             },
         },
     },
-}));
+};
 
-
-function Layout1(props) {
-    const config = useSelector(({fuse})=>fuse.settings.curent.layout.config);
-
-}
-
-export default memo(Layout1)
+export default config;
